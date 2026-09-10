@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-xl mx-auto bg-slate-800/60 border border-slate-700 rounded-2xl p-8 backdrop-blur-lg">
+    <div class="mb-6 text-center">
+        <h2 class="text-2xl font-bold text-white mb-1">Image Converter</h2>
+        <p class="text-slate-400 text-sm">Convert your images quickly and efficiently.</p>
+    </div>
+
+    <form action="/image-converter" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <!-- File Input -->
+        <div>
+            <label class="block text-sm font-medium text-slate-300 mb-2">Select Image File</label>
+            <input type="file" name="image" required class="block w-full text-sm text-slate-400 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-500 cursor-pointer bg-slate-900/50 border border-slate-700 rounded-xl p-2">
+        </div>
+
+        <!-- Format Dropdown -->
+        <div>
+            <label class="block text-sm font-medium text-slate-300 mb-2">Convert To</label>
+            <select name="format" class="w-full bg-slate-900/50 border border-slate-700 text-slate-200 text-sm rounded-xl p-3 focus:outline-none focus:border-blue-500">
+                <option value="JPEG">JPG / JPEG</option>
+                <option value="PNG">PNG</option>
+                <option value="WEBP">WEBP</option>
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="w-full py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-blue-500/20">
+            Convert & Download
+        </button>
+    </form>
+</div>
+{% endblock %}
